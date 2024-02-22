@@ -56,8 +56,8 @@ func main() {
 	}
 
 	//build merkle tree
-	arbol := BuildMerkleTree(transactions)
+	tree := BuildMerkleTree(transactions)
 
 	//print the root of the Merkle tree
-	fmt.Printf("merkle tree root (Hash): %s\n", hex.EncodeToString(arbol.HashValor))
+	fmt.Printf("merkle tree root (Hash): %s\n", hex.EncodeToString(tree.HashValor))
 }
