@@ -9,8 +9,8 @@ import (
 type Hash []byte
 
 type MerkleNode struct {
-	Izquierda *MerkleNode
-	Derecha   *MerkleNode
+	Left      *MerkleNode
+	Right     *MerkleNode
 	HashValor Hash
 }
 
@@ -19,11 +19,11 @@ func CalculateHash(data []byte) Hash {
 	return hash[:]
 }
 
-func BuildMerkleTree(transacciones [][]byte) *MerkleNode {
+func BuildMerkleTree(transactions [][]byte) *MerkleNode {
 	var nodes []MerkleNode
 
 	//create leaf nodes (transactions)
-	for _, tx := range transacciones {
+	for _, tx := range transactions {
 		hash := CalculateHash(tx)
 		nodes = append(nodes, MerkleNode{nil, nil, hash})
 	}
